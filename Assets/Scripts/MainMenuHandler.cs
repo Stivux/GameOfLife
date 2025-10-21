@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
@@ -13,9 +13,16 @@ public class MainMenuHandler : MonoBehaviour
         Application.Quit();
 #endif
     }
-    
-    public void StartGame()
+
+    public void StartSingle()
     {
+        PlayerPrefs.SetInt("IsPVP", 0);
+        SceneManager.LoadScene(gameSceneName);
+    }
+
+    public void StartPVP()
+    {
+        PlayerPrefs.SetInt("IsPVP", 1);
         SceneManager.LoadScene(gameSceneName);
     }
 }
